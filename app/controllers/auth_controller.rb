@@ -4,7 +4,7 @@ class AuthController < ApplicationController
       if user && user.authenticate(params[:password])
         render json: {
           message: "You LOGGED IN!",
-          succesful: true,
+          successful: true,
           data: user,
           token: encode({"id": user.id})
         }

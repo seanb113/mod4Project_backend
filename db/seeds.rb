@@ -9,6 +9,7 @@ response_Yelp = RestClient.get('https://api.yelp.com/v3/businesses/search?catego
 response_hash = JSON.parse(response_Yelp)
 cafe_array = response_hash['businesses']
 User.create(name: "username101", password: "hi")
+User.create(name: "sean", password: "123")
 
 
 
