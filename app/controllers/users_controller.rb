@@ -8,4 +8,5 @@ class UsersController < ApplicationController
         user = User.find(decode(token)["id"])
         render json: user
     end
+    
 end

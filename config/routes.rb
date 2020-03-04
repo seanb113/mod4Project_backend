@@ -2,7 +2,9 @@ Rails.application.routes.draw do
  
  resources :coffee_shops, only: [:index]
  resources :users, only: [:index]
+ resources :favorites, only: [:create]
  post '/login', to: 'auth#create'
+#  post '/favorites', to: 'favorites#create'
  get '/profile', to: 'users#profile'
  
 
