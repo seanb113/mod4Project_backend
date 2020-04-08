@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_013839) do
+ActiveRecord::Schema.define(version: 2020_04_08_193150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,18 +28,12 @@ ActiveRecord::Schema.define(version: 2020_03_03_013839) do
     t.float "distance"
     t.decimal "longitude"
     t.decimal "latitude"
+    t.text "categories", default: [], array: true
   end
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "coffeeshop_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.decimal "latitude"
-    t.decimal "longitude"
+    t.integer "coffee_shop_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

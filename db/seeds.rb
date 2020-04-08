@@ -2,6 +2,8 @@ require 'rest-client'
 require 'byebug'
 require 'json'
 CoffeeShop.destroy_all
+User.destroy_all
+Favorite.destroy_all
 
 google_key = Rails.application.credentials.google_maps[:api_key2]
 key = Rails.application.credentials.yelp[:api_key]
@@ -24,7 +26,8 @@ cafe_array.each do |shop|
     distance = shop["distance"]
     latitude = shop["coordinates"]["latitude"]
     longitude = shop["coordinates"]["longitude"]
-    CoffeeShop.create(name: name, location: location, price: price, image_url: image, display_phone: phone_number, rating: rating, review_count: review_count, distance: distance, latitude: latitude, longitude: longitude)
+    categories = shop["categories"].map{|c| c["alias"]}
+    CoffeeShop.create(name: name, location: location, price: price, image_url: image, display_phone: phone_number, rating: rating, review_count: review_count, distance: distance, latitude: latitude, longitude: longitude, categories: categories)
     # Location.create(latitude: latitude, longitude: longitude, name: name)
 end
 
