@@ -4,8 +4,8 @@ Rails.application.routes.draw do
  resources :users, only: [:index]
  resources :favorites
  post '/login', to: 'auth#create'
- post '/users/:id/coffeeshops', to: 'coffee_shops#by_user'
- delete '/users/:id/coffeeshops', to: 'coffee_shops#destroy'
+ post '/users/:id/coffeeshops', to: 'favorites#create'
+ delete '/favorites/:id', to: 'favorites#destroy'
  get '/profile', to: 'users#profile'
  get '/users/:id/coffeeshops', to: 'coffee_shops#by_user'
  post '/users', to: 'users#create'

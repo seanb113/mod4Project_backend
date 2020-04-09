@@ -10,7 +10,7 @@ class CoffeeShopsController < ApplicationController
   def by_user
     user = User.find(params[:id])
     user_shops = user.coffee_shops
-    render json: user_shops.to_json(methods: :fav_number)
+    render json: user_shops.to_json(methods: :favorites)
   end
 
   def create
