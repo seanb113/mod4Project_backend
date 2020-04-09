@@ -2,16 +2,12 @@ require 'rest-client'
 require 'byebug'
 require 'json'
 CoffeeShop.destroy_all
-User.destroy_all
-Favorite.destroy_all
 
 google_key = Rails.application.credentials.google_maps[:api_key2]
 key = Rails.application.credentials.yelp[:api_key]
 response_Yelp = RestClient.get('https://api.yelp.com/v3/businesses/search?categories=coffee&location=washingtondc&limit=50', {:Authorization => "Bearer #{key}"})
 response_hash = JSON.parse(response_Yelp)
 cafe_array = response_hash['businesses']
-User.create(name: "username101", password: "hi")
-User.create(name: "sean", password: "123")
 
 
 
