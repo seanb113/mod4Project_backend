@@ -24,7 +24,6 @@ cafe_array.each do |shop|
     longitude = shop["coordinates"]["longitude"]
     categories = shop["categories"].map{|c| c["alias"]}
     CoffeeShop.create(name: name, location: location, price: price, image_url: image, display_phone: phone_number, rating: rating, review_count: review_count, distance: distance, latitude: latitude, longitude: longitude, categories: categories)
-    # Location.create(latitude: latitude, longitude: longitude, name: name)
 end
 
 
