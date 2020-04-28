@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_212956) do
+ActiveRecord::Schema.define(version: 2020_04_28_151824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_212956) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
-    t.string "profile_pic", default: "https://pixy.org/src/476/4764586.png"
+    t.string "profile_pic"
     t.text "bio"
   end
 

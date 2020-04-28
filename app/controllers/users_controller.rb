@@ -48,9 +48,14 @@ class UsersController < ApplicationController
     end
 
     def update
+      # if params[:file]
+      # user = User.find(params[:id])
+      # user.profile_pic.attach(params[:file])
+      # else
       user = User.find(params[:id])
       user.update_attributes(user_params)
       render json: user
+      
     end
 
     private
