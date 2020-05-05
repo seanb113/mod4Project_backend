@@ -1,6 +1,8 @@
 class AuthController < ApplicationController
     def create
       user = User.find_by(name: params[:name])
+      # byebug
+      # user = user.profile_pic_url
       if user && user.authenticate(params[:password])
         render json: {
           message: "You LOGGED IN!",

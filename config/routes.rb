@@ -10,6 +10,8 @@ Rails.application.routes.draw do
  get '/users/:id/coffeeshops', to: 'coffee_shops#by_user'
  post '/users', to: 'users#create'
  post '/users/:id', to: 'users#update'
+ patch '/users/:id', to: 'users#update'
+
 
 
  

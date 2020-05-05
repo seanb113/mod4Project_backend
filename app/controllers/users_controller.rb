@@ -1,6 +1,8 @@
+require 'byebug'
 class UsersController < ApplicationController
     def index
-        all_users = User.all
+        # @users = User.all
+        # respond_to :html, :js
         render json: all_users.to_json(
           :include => {:coffee_shops =>
         {:except => [:created_at, :updated_at]}}
@@ -32,6 +34,7 @@ class UsersController < ApplicationController
     end
 
     def profile
+      byebug
         token= request.headers["Authentication"]
         user = User.find(decode(token)["id"])
         render json: user
@@ -47,15 +50,21 @@ class UsersController < ApplicationController
         Favorite.destroy(favorite.id)
     end
 
+    def profile_pic
+      user = User.find(params[:id])
+      user.profile_pic.attach(params[:file])
+      profile_pic = url_for(user.profile_pic)
+      render json: user
+    end
+
     def update
       # if params[:file]
-      # user = User.find(params[:id])
-      # user.profile_pic.attach(params[:file])
-      # else
       user = User.find(params[:id])
+      user.profile_pic.attach(params[:profile_pic])
+      # else
+      profile_pic = url_for(user.profile_pic)
       user.update_attributes(user_params)
       render json: user
-      
     end
 
     private

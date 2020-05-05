@@ -83,6 +83,8 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
+    jbuilder (2.10.0)
+      activesupport (>= 5.0.0)
     jsonapi-renderer (0.2.2)
     jwt (2.2.1)
     listen (3.1.5)
@@ -185,6 +187,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   faker (~> 2.10)
+  jbuilder (~> 2.7)
   jwt (~> 2.2)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
