@@ -54,7 +54,14 @@ ActiveRecord::Schema.define(version: 2020_05_03_175919) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "coffee_shop_id"
+    t.integer "coffeeshop_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.decimal "latitude"
+    t.decimal "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
