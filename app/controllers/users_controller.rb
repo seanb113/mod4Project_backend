@@ -60,9 +60,9 @@ class UsersController < ApplicationController
     def update
       # if params[:file]
       user = User.find(params[:id])
-      user.profile_pic.attach(params[:profile_pic])
-      # else
-      profile_pic = url_for(user.profile_pic)
+      # user.profile_pic.attach(params[:profile_pic])
+      # # else
+      # profile_pic = url_for(user.profile_pic)
       user.update_attributes(user_params)
       render json: user
     end
