@@ -2,15 +2,15 @@ require 'rest-client'
 require 'byebug'
 require 'json'
 CoffeeShop.destroy_all
+User.destroy_all
 
 key = Rails.application.credentials[:api_key]
-google_key = Rails.application.credentials[:api_key2]
 response_Yelp = RestClient.get('https://api.yelp.com/v3/businesses/search?categories=coffee&location=washingtondc&limit=50', {:Authorization => "Bearer #{key}"})
 response_hash = JSON.parse(response_Yelp)
 cafe_array = response_hash['businesses']
 
-sean = User.create(name: "John", password: "123")
-sean.profile_pic.attach(io: File.open('./db/IMG_5851.JPG'), filename: 'IMG_5851.JPG')
+sean = User.create(name: "Jack", password: "123")
+# sean.profile_pic.attach(io: File.open('./db/IMG_5851.JPG'), filename: 'IMG_5851.JPG')
 
 
 
